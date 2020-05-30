@@ -1,11 +1,6 @@
 pipeline {
      agent any
      stages {
-        stage('Cloning Git') {
-            steps {
-            git 'https://github.com/sabreensalama/Cloud-Devops-Capstone.git'
-                 }
-         }
         stage('Build Imgae') {
              steps {
                   
