@@ -27,7 +27,7 @@ pipeline {
         stage('Testing Stage using pytest') {
              steps {
                   
-                 sh 'python -m pytest -vv ./users_auth/tests.py'
+                 sh 'python3 manage.py test'
    
              }
          }
