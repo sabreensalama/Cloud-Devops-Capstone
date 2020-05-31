@@ -14,11 +14,19 @@ pipeline {
    
              }
          }
-        stage('Check dockerfile for any error') {
-              steps {
-                  sh 'hadolint Dockerfile'
-              }
+        stage('Test HTML') {
+             steps {
+                  
+                 sh 'docker build -t  fund-app .'
+                 sh 'echo "succefully built"'
+   
+             }
          }
+        // stage('Check dockerfile for any error') {
+        //       steps {
+        //           sh 'hadolint Dockerfile'
+        //       }
+        //  }
 
  
 }
