@@ -1,10 +1,17 @@
 pipeline {
+    environment {
+    registry = "sabreensalama/fund-app"
+    registryCredential = 'dockerhub'
+    dockerImage = ''
+
+    }
      agent any
      stages {
         stage('Build Imgae') {
              steps {
                   
-                 sh 'docker build -t  fund-app .'
+                dockerImage = docker.build registry + ":$BUILD_NUMBER"
+
                  sh 'echo "succefully built"'
    
              }
@@ -21,10 +28,21 @@ pipeline {
              }
          }
 
+
         stage('Testing Stage using pytest') {
              steps {
                   
                  sh 'python -m pytest -vv --cov=myrepolib ./users_auth/tests/*.py'
+   
+             }
+         }
+
+        stage('Upload image to dockerhub') {
+             steps {
+               script {
+                    docker.withRegistry( '', registryCredential ) {
+                    dockerImage.push()
+          }
    
              }
          }
