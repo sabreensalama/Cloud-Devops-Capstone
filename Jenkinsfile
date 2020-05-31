@@ -9,13 +9,16 @@ pipeline {
    
              }
          }
-        stage('Test HTML') {
+        stage('Linting HTML') {
              steps {
                   
-                 sh 'tidy /users_auth/templates/*.html'
+                 sh 'tidy  -q -e /users_auth/templates/*.html'
+                 echo "Linting Dockerfile"
+                 sh 'hadolint Dockerfile'
    
              }
          }
+
         // stage('Check dockerfile for any error') {
         //       steps {
         //           sh 'hadolint Dockerfile'
