@@ -22,7 +22,6 @@ from django.core.mail import EmailMessage
 from django.shortcuts import render, redirect
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
-from django.shortcuts import render
 from .forms import *
 from Project.models import *
 from django.http import HttpResponse
