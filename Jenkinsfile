@@ -17,11 +17,11 @@ pipeline {
         stage('Linting HTML') {
              steps {
                   
-                 sh 'tidy  -q -e ./users_auth/templates/*.html'
+                 sh 'tidy  -q -e index.html'
                  echo "Linting Dockerfile"
                  sh 'hadolint Dockerfile'
                  echo "Linting  python file"
-                 sh '	pylint --disable=R,C,W1203 ./users_auth/views.py'
+                 sh 'pylint --disable=R,C,W1203 ./users_auth/views.py'
    
              }
          }
@@ -30,8 +30,8 @@ pipeline {
         stage('Testing Stage using pytest') {
              steps {
                   
-                 sh 'python -m pytest -vv --cov=myrepolib ./users_auth/tests/*.py'
-   
+                sh 'python3 manage.py test'
+                echo 'passed'
              }
          }
 
