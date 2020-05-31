@@ -7,15 +7,13 @@ pipeline {
     }
      agent any
      stages {
-        stage('Build Imgae') {
-             steps {
-                  
+        stage('Building image') {
+            steps{
+                script {
                 dockerImage = docker.build registry + ":$BUILD_NUMBER"
-
-                 sh 'echo "succefully built"'
-   
-             }
-         }
+                }
+            }
+            }
         stage('Linting HTML') {
              steps {
                   
