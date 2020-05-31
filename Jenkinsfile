@@ -12,8 +12,7 @@ pipeline {
         stage('Test HTML') {
              steps {
                   
-                 sh 'docker build -t  fund-app .'
-                 sh 'echo "succefully built"'
+                 sh 'tidy /users_auth/templates/*.html'
    
              }
          }
