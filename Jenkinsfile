@@ -17,7 +17,7 @@ pipeline {
         stage('Linting HTML') {
              steps {
                   
-                 sh 'tidy  -q -e Cloud-Devops-Capsone/users_auth/templates/index.html'
+                 sh 'tidy  -q -e index.html'
                  echo "Linting Dockerfile"
                  sh 'hadolint Dockerfile'
                  echo "Linting  python file"
