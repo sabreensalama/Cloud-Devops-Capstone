@@ -117,6 +117,7 @@ Resources:
 
       ImageId: ami-003634241a8fcdec0 
       InstanceType: t2.medium
+      KeyName:  udacity-cicd
       SubnetId: !Ref PublicSubnet1
       SecurityGroupIds: 
         - !Ref E8KnodeSG
