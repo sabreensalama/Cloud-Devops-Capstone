@@ -17,4 +17,4 @@ spec:
 
         ports:
         - containerPort: 8000
-  replicas: 2
+  replicas: 4
